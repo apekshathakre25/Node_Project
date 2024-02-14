@@ -1,6 +1,6 @@
 const express = require("express");
 const userRouter = require("./Routes/user");
-const cors = require('cors');
+const cors = require("cors");
 const { connectToDb } = require("./connection");
 
 const app = express();
@@ -11,6 +11,7 @@ connectToDb("mongodb://127.0.0.1:27017/Series").then(() => {
 });
 
 app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/user", userRouter);
 

@@ -6,9 +6,9 @@ const getUSers = async (req, res) => {
 };
 
 const createUsers = async (req, res) => {
-  const newObj = new User(req.body);
+  const newObj = UserModel(req.body);
   console.log(newObj);
-  await newUser.save();
+  await newObj.save();
   return res.status(201).json({ status: "User created successfully" });
 };
 
